@@ -36,10 +36,14 @@ dependencies:
   cupertino_icons: ^1.0.8
   lottie: ^3.3.2
   smooth_page_indicator: ^2.0.1
+  shared_preferences: ^2.5.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  firebase_core: any
+  firebase_auth: any
+  cloud_firestore: any
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

@@ -19,25 +19,19 @@ class _OnboardingViewState extends State<OnboardingView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-  automaticallyImplyLeading: false,
-    backgroundColor: Colors.transparent,
-    elevation: 0,
-    actions: [
-      TextButton(
-        onPressed: () {
-         
-         
-        },
-        child: Text(
-          "Skip",
-          style: TextStyle(
-            color: Colors.grey[600], 
-            fontSize: 16,
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        actions: [
+          TextButton(
+            onPressed: () {},
+            child: Text(
+              "Skip",
+              style: TextStyle(color: Colors.grey[600], fontSize: 16),
+            ),
           ),
-        ),
+        ],
       ),
-    ],
-  ),
       body: Container(
         padding: const EdgeInsets.all(10),
         child: Column(
@@ -58,7 +52,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                         "From your favorite classics to the latest supercars, build your personal collection.",
                   ),
                   buildPage(
-                   image: "assets/images/onboarding_two.jpg",
+                    image: "assets/images/onboarding_two.jpg",
                     title: "Save Your Favorites",
                     subtitle:
                         "Keep track of the cars you love and never lose them.",
@@ -79,8 +73,8 @@ class _OnboardingViewState extends State<OnboardingView> {
               effect: ExpandingDotsEffect(
                 dotHeight: 10,
                 dotWidth: 10,
-               activeDotColor: AppColors.primaryNavy, 
-               dotColor: AppColors.softPink,
+                activeDotColor: AppColors.primaryNavy,
+                dotColor: AppColors.softPink,
               ),
             ),
             const SizedBox(height: 20),
@@ -88,13 +82,15 @@ class _OnboardingViewState extends State<OnboardingView> {
             ElevatedButton(
               onPressed: () {
                 if (isLastPage) {
-                  // TODO: Go to Register/Login
                   print("Onboarding finished");
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return RegisterView();
-
-                  },));
-               
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return RegisterView();
+                      },
+                    ),
+                  );
                 } else {
                   _controller.nextPage(
                     duration: const Duration(milliseconds: 400),
@@ -103,8 +99,12 @@ class _OnboardingViewState extends State<OnboardingView> {
                 }
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: isLastPage ? AppColors.softPink : AppColors.primaryNavy, // Changes color on last page!
-    foregroundColor: isLastPage ? AppColors.primaryNavy : Colors.white,
+                backgroundColor: isLastPage
+                    ? AppColors.softPink
+                    : AppColors.primaryNavy, // Changes color on last page!
+                foregroundColor: isLastPage
+                    ? AppColors.primaryNavy
+                    : Colors.white,
                 shape: StadiumBorder(),
                 padding: EdgeInsets.symmetric(horizontal: 40, vertical: 12),
               ),

@@ -1,8 +1,15 @@
 import 'package:car_collection/core/constants/app_colors.dart';
 import 'package:car_collection/view/splash_view.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  // Bridges Flutter with the native platform (iOS/Android)
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Initializes Firebase engine using the options file
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const CarCollectionApp());
 }
 
