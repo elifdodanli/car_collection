@@ -24,7 +24,16 @@ class _OnboardingViewState extends State<OnboardingView> {
         elevation: 0,
         actions: [
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return RegisterView();
+                  },
+                ),
+              );
+            },
             child: Text(
               "Skip",
               style: TextStyle(color: Colors.grey[600], fontSize: 16),
