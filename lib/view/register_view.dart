@@ -4,6 +4,7 @@ import 'package:car_collection/view/login_view.dart';
 import 'package:flutter/material.dart';
 import '../core/constants/app_colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:car_collection/core/utils/snackbar_helper.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
@@ -142,9 +143,18 @@ class _RegisterViewState extends State<RegisterView> {
 
                   ElevatedButton(
                     onPressed: () async {
+                      final name = _nameController.text.trim();
                       final email = _emailController.text.trim();
                       final password = _passwordController.text.trim();
 
+                      if (name.isEmpty || email.isEmpty || password.isEmpty) {
+                        SnackBarHelper.show(
+                          context,
+                          "Please fill in all fields!",
+                          isError: true,
+                        );
+                        return;
+                      }
                       try {
                         final userCredential = await FirebaseAuth.instance
                             .createUserWithEmailAndPassword(
@@ -164,7 +174,11 @@ class _RegisterViewState extends State<RegisterView> {
                           );
                         }
                       } on FirebaseAuthException catch (e) {
-                        print("Firebase Auth Error: ${e.message}");
+                        SnackBarHelper.show(
+                          context,
+                          e.message ?? "Registration failed!",
+                          isError: true,
+                        );
                       }
                     },
                     style: ElevatedButton.styleFrom(
@@ -211,12 +225,6 @@ class _RegisterViewState extends State<RegisterView> {
           ),
         ],
       ),
-    );
-  }
-
-  void _showError(String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message), backgroundColor: Colors.redAccent),
     );
   }
 }

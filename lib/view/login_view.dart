@@ -4,6 +4,7 @@ import 'package:car_collection/view/home_view.dart';
 import 'package:car_collection/view/register_view.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:car_collection/core/utils/snackbar_helper.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -81,6 +82,14 @@ class _LoginViewState extends State<LoginView> {
                       final email = _emailController.text.trim();
                       final password = _passwordController.text.trim();
 
+                      if (email.isEmpty || password.isEmpty) {
+                        SnackBarHelper.show(
+                          context,
+                          "Please fill in all fields!",
+                          isError: true,
+                        );
+                        return;
+                      }
                       try {
                         await FirebaseAuth.instance.signInWithEmailAndPassword(
                           email: email,
@@ -99,7 +108,11 @@ class _LoginViewState extends State<LoginView> {
                           );
                         }
                       } on FirebaseAuthException catch (e) {
-                        print("Login Error: ${e.message}");
+                        SnackBarHelper.show(
+                          context,
+                          e.message ?? "Login failed!",
+                          isError: true,
+                        );
                       }
                     },
                     style: ElevatedButton.styleFrom(
@@ -140,12 +153,6 @@ class _LoginViewState extends State<LoginView> {
           ],
         ),
       ),
-    );
-  }
-
-  void _showError(String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message), backgroundColor: Colors.redAccent),
     );
   }
 }
