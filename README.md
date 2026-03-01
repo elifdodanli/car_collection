@@ -7,7 +7,8 @@ A sleek, aesthetic mobile application for car enthusiasts to curate and showcase
 ### 1. App Walkthrough
 | Splash | Onboarding 1 | Onboarding 2 | Onboarding 3 |
 | :---: | :---: | :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/1c089af1-c8cc-4435-b9e9-1d381472a8a9" width="200"> | <img src="https://github.com/user-attachments/assets/54aec01d-3045-41c7-a58d-aed587d8a4d9" width="200"> | <img src="https://github.com/user-attachments/assets/23f347cc-a75d-47da-af4c-79a6c97bb488" width="200"> | <img src="https://github.com/user-attachments/assets/2402986f-da9c-44af-ac94-606d4d1f3343" width="200"> |
+| <img src="https://github.com/user-attachments/assets/1c089af1-c8cc-4435-b9e9-1d381472a8a9" width="200"> | <img src="https://github.com/user-attachments/assets/54aec01d-3045-41c7-a58d-aed587d8a4d9" width="200"> | <img src="https://github.com/user-attachments/assets/23f347cc-a75d-47da-af4c-79a6c97bb488" width="200"> | <img src="https://github.com/user-attachments/assets/d8a86c82-8aeb-4657-8c18-b24817e3b34a" width="200"> |
+
 
 ---
 
