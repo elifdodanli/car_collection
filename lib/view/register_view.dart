@@ -124,7 +124,7 @@ class _RegisterViewState extends State<RegisterView> {
                   ),
                   const SizedBox(height: 20),
                   TextField(
-                    controller: _emailController, // Added this!
+                    controller: _emailController,
                     decoration: const InputDecoration(
                       labelText: "Email Address",
                       prefixIcon: Icon(Icons.email),
@@ -152,7 +152,6 @@ class _RegisterViewState extends State<RegisterView> {
                               password: password,
                             );
 
-                        // Başarılıysa yerel cache'i güncelle
                         await CacheManager.setLoggedIn();
 
                         if (context.mounted) {

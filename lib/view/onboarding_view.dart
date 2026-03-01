@@ -50,7 +50,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                 controller: _controller,
                 onPageChanged: (index) {
                   setState(() {
-                    isLastPage = index == 2; // 3. sayfa son sayfa
+                    isLastPage = index == 2;
                   });
                 },
                 children: [

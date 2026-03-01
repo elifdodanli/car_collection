@@ -1,6 +1,7 @@
 import 'package:car_collection/core/constants/app_colors.dart';
 import 'package:car_collection/core/services/cache_manager.dart';
 import 'package:car_collection/view/home_view.dart';
+import 'package:car_collection/view/register_view.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -105,6 +106,33 @@ class _LoginViewState extends State<LoginView> {
                       minimumSize: const Size(double.infinity, 50),
                     ),
                     child: const Text("OPEN THE GARAGE"),
+                  ),
+                  const SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        "Don't have an account?",
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const RegisterView(),
+                            ),
+                          );
+                        },
+                        child: const Text(
+                          "Sign Up",
+                          style: TextStyle(
+                            color: AppColors.primaryNavy,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
