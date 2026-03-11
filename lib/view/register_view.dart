@@ -161,6 +161,7 @@ class _RegisterViewState extends State<RegisterView> {
                               email: email,
                               password: password,
                             );
+                        await userCredential.user?.updateDisplayName(name);
 
                         await CacheManager.setLoggedIn();
 
